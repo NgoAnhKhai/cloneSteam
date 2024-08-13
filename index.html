@@ -1,0 +1,860 @@
+<html class="translated-ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giải pháp STEAM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style type="text/css">
+      .vue-slider-dot {
+        position: absolute;
+        -webkit-transition: all 0s;
+        transition: all 0s;
+        z-index: 5;
+      }
+      .vue-slider-dot:focus {
+        outline: none;
+      }
+      .vue-slider-dot-tooltip {
+        position: absolute;
+        visibility: hidden;
+      }
+      .vue-slider-dot-hover:hover .vue-slider-dot-tooltip,
+      .vue-slider-dot-tooltip-show {
+        visibility: visible;
+      }
+      .vue-slider-dot-tooltip-top {
+        top: -10px;
+        left: 50%;
+        -webkit-transform: translate(-50%, -100%);
+        transform: translate(-50%, -100%);
+      }
+      .vue-slider-dot-tooltip-bottom {
+        bottom: -10px;
+        left: 50%;
+        -webkit-transform: translate(-50%, 100%);
+        transform: translate(-50%, 100%);
+      }
+      .vue-slider-dot-tooltip-left {
+        left: -10px;
+        top: 50%;
+        -webkit-transform: translate(-100%, -50%);
+        transform: translate(-100%, -50%);
+      }
+      .vue-slider-dot-tooltip-right {
+        right: -10px;
+        top: 50%;
+        -webkit-transform: translate(100%, -50%);
+        transform: translate(100%, -50%);
+      }
+    </style>
+    <style type="text/css">
+      .vue-slider-marks {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .vue-slider-mark {
+        position: absolute;
+        z-index: 1;
+      }
+      .vue-slider-ltr .vue-slider-mark,
+      .vue-slider-rtl .vue-slider-mark {
+        width: 0;
+        height: 100%;
+        top: 50%;
+      }
+      .vue-slider-ltr .vue-slider-mark-step,
+      .vue-slider-rtl .vue-slider-mark-step {
+        top: 0;
+      }
+      .vue-slider-ltr .vue-slider-mark-label,
+      .vue-slider-rtl .vue-slider-mark-label {
+        top: 100%;
+        margin-top: 10px;
+      }
+      .vue-slider-ltr .vue-slider-mark {
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .vue-slider-ltr .vue-slider-mark-step {
+        left: 0;
+      }
+      .vue-slider-ltr .vue-slider-mark-label {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+      .vue-slider-rtl .vue-slider-mark {
+        -webkit-transform: translate(50%, -50%);
+        transform: translate(50%, -50%);
+      }
+      .vue-slider-rtl .vue-slider-mark-step {
+        right: 0;
+      }
+      .vue-slider-rtl .vue-slider-mark-label {
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        transform: translateX(50%);
+      }
+      .vue-slider-btt .vue-slider-mark,
+      .vue-slider-ttb .vue-slider-mark {
+        width: 100%;
+        height: 0;
+        left: 50%;
+      }
+      .vue-slider-btt .vue-slider-mark-step,
+      .vue-slider-ttb .vue-slider-mark-step {
+        left: 0;
+      }
+      .vue-slider-btt .vue-slider-mark-label,
+      .vue-slider-ttb .vue-slider-mark-label {
+        left: 100%;
+        margin-left: 10px;
+      }
+      .vue-slider-btt .vue-slider-mark {
+        -webkit-transform: translate(-50%, 50%);
+        transform: translate(-50%, 50%);
+      }
+      .vue-slider-btt .vue-slider-mark-step {
+        top: 0;
+      }
+      .vue-slider-btt .vue-slider-mark-label {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+      .vue-slider-ttb .vue-slider-mark {
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .vue-slider-ttb .vue-slider-mark-step {
+        bottom: 0;
+      }
+      .vue-slider-ttb .vue-slider-mark-label {
+        bottom: 50%;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+      }
+      .vue-slider-mark-label,
+      .vue-slider-mark-step {
+        position: absolute;
+      }
+    </style>
+    <style type="text/css">
+      .vue-slider {
+        position: relative;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        display: block;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+      .vue-slider-rail {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        -webkit-transition-property: width, height, left, right, top, bottom;
+        transition-property: width, height, left, right, top, bottom;
+      }
+      .vue-slider-process {
+        position: absolute;
+        z-index: 1;
+      }
+    </style>
+    <style type="text/css">
+      .vue-slider-dot {
+        position: absolute;
+        -webkit-transition: all 0s;
+        transition: all 0s;
+        z-index: 5;
+      }
+      .vue-slider-dot:focus {
+        outline: none;
+      }
+      .vue-slider-dot-tooltip {
+        position: absolute;
+        visibility: hidden;
+      }
+      .vue-slider-dot-hover:hover .vue-slider-dot-tooltip,
+      .vue-slider-dot-tooltip-show {
+        visibility: visible;
+      }
+      .vue-slider-dot-tooltip-top {
+        top: -10px;
+        left: 50%;
+        -webkit-transform: translate(-50%, -100%);
+        transform: translate(-50%, -100%);
+      }
+      .vue-slider-dot-tooltip-bottom {
+        bottom: -10px;
+        left: 50%;
+        -webkit-transform: translate(-50%, 100%);
+        transform: translate(-50%, 100%);
+      }
+      .vue-slider-dot-tooltip-left {
+        left: -10px;
+        top: 50%;
+        -webkit-transform: translate(-100%, -50%);
+        transform: translate(-100%, -50%);
+      }
+      .vue-slider-dot-tooltip-right {
+        right: -10px;
+        top: 50%;
+        -webkit-transform: translate(100%, -50%);
+        transform: translate(100%, -50%);
+      }
+    </style>
+    <style type="text/css">
+      .vue-slider-marks {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .vue-slider-mark {
+        position: absolute;
+        z-index: 1;
+      }
+      .vue-slider-ltr .vue-slider-mark,
+      .vue-slider-rtl .vue-slider-mark {
+        width: 0;
+        height: 100%;
+        top: 50%;
+      }
+      .vue-slider-ltr .vue-slider-mark-step,
+      .vue-slider-rtl .vue-slider-mark-step {
+        top: 0;
+      }
+      .vue-slider-ltr .vue-slider-mark-label,
+      .vue-slider-rtl .vue-slider-mark-label {
+        top: 100%;
+        margin-top: 10px;
+      }
+      .vue-slider-ltr .vue-slider-mark {
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .vue-slider-ltr .vue-slider-mark-step {
+        left: 0;
+      }
+      .vue-slider-ltr .vue-slider-mark-label {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+      .vue-slider-rtl .vue-slider-mark {
+        -webkit-transform: translate(50%, -50%);
+        transform: translate(50%, -50%);
+      }
+      .vue-slider-rtl .vue-slider-mark-step {
+        right: 0;
+      }
+      .vue-slider-rtl .vue-slider-mark-label {
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        transform: translateX(50%);
+      }
+      .vue-slider-btt .vue-slider-mark,
+      .vue-slider-ttb .vue-slider-mark {
+        width: 100%;
+        height: 0;
+        left: 50%;
+      }
+      .vue-slider-btt .vue-slider-mark-step,
+      .vue-slider-ttb .vue-slider-mark-step {
+        left: 0;
+      }
+      .vue-slider-btt .vue-slider-mark-label,
+      .vue-slider-ttb .vue-slider-mark-label {
+        left: 100%;
+        margin-left: 10px;
+      }
+      .vue-slider-btt .vue-slider-mark {
+        -webkit-transform: translate(-50%, 50%);
+        transform: translate(-50%, 50%);
+      }
+      .vue-slider-btt .vue-slider-mark-step {
+        top: 0;
+      }
+      .vue-slider-btt .vue-slider-mark-label {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+      .vue-slider-ttb .vue-slider-mark {
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .vue-slider-ttb .vue-slider-mark-step {
+        bottom: 0;
+      }
+      .vue-slider-ttb .vue-slider-mark-label {
+        bottom: 50%;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+      }
+      .vue-slider-mark-label,
+      .vue-slider-mark-step {
+        position: absolute;
+      }
+    </style>
+    <style type="text/css">
+      .vue-slider {
+        position: relative;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        display: block;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+      .vue-slider-rail {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        -webkit-transition-property: width, height, left, right, top, bottom;
+        transition-property: width, height, left, right, top, bottom;
+      }
+      .vue-slider-process {
+        position: absolute;
+        z-index: 1;
+      }
+    </style>
+    <style>
+      @import url("chrome-extension://adlpodnneegcnbophopdmhedicjbcgco/content/styles.css");
+    </style>
+    <style>
+      @import url("chrome-extension://ngkjielajlecigijlijjkhkhlhmmcgfh/content/styles.css");
+    </style>
+    <link
+      id="USE_CHAT_GPT_AI_CONTENT_CSS_LINK_TAG"
+      rel="stylesheet"
+      href="chrome-extension://mhnlakgilnojmhinhkckjpncpbhabphi/content.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <style id="_goober">
+      .go1475592160 {
+        height: 0;
+      }
+      .go1671063245 {
+        height: auto;
+      }
+      .go1888806478 {
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+      }
+      @media (min-width: 600px) {
+        .go1888806478 {
+          flex-grow: initial;
+          min-width: 288px;
+        }
+      }
+      .go167266335 {
+        background-color: #313131;
+        font-size: 0.875rem;
+        line-height: 1.43;
+        letter-spacing: 0.01071em;
+        color: #fff;
+        align-items: center;
+        padding: 6px 16px;
+        border-radius: 4px;
+        box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+          0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+      }
+      .go3162094071 {
+        padding-left: 20px;
+      }
+      .go3844575157 {
+        background-color: #313131;
+      }
+      .go1725278324 {
+        background-color: #43a047;
+      }
+      .go3651055292 {
+        background-color: #d32f2f;
+      }
+      .go4215275574 {
+        background-color: #ff9800;
+      }
+      .go1930647212 {
+        background-color: #2196f3;
+      }
+      .go946087465 {
+        display: flex;
+        align-items: center;
+        padding: 8px 0;
+      }
+      .go703367398 {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        padding-left: 16px;
+        margin-right: -8px;
+      }
+      .go3963613292 {
+        width: 100%;
+        position: relative;
+        transform: translateX(0);
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        min-width: 288px;
+      }
+      .go1141946668 {
+        box-sizing: border-box;
+        display: flex;
+        max-height: 100%;
+        position: fixed;
+        z-index: 1400;
+        height: auto;
+        width: auto;
+        transition: top 300ms ease 0ms, right 300ms ease 0ms,
+          bottom 300ms ease 0ms, left 300ms ease 0ms, max-width 300ms ease 0ms;
+        pointer-events: none;
+        max-width: calc(100% - 40px);
+      }
+      .go1141946668 .notistack-CollapseWrapper {
+        padding: 6px 0px;
+        transition: padding 300ms ease 0ms;
+      }
+      @media (max-width: 599.95px) {
+        .go1141946668 {
+          width: 100%;
+          max-width: calc(100% - 32px);
+        }
+      }
+      .go3868796639 .notistack-CollapseWrapper {
+        padding: 2px 0px;
+      }
+      .go3118922589 {
+        top: 14px;
+        flex-direction: column;
+      }
+      .go1453831412 {
+        bottom: 14px;
+        flex-direction: column-reverse;
+      }
+      .go4027089540 {
+        left: 20px;
+      }
+      @media (min-width: 600px) {
+        .go4027089540 {
+          align-items: flex-start;
+        }
+      }
+      @media (max-width: 599.95px) {
+        .go4027089540 {
+          left: 16px;
+        }
+      }
+      .go2989568495 {
+        right: 20px;
+      }
+      @media (min-width: 600px) {
+        .go2989568495 {
+          align-items: flex-end;
+        }
+      }
+      @media (max-width: 599.95px) {
+        .go2989568495 {
+          right: 16px;
+        }
+      }
+      .go4034260886 {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      @media (min-width: 600px) {
+        .go4034260886 {
+          align-items: center;
+        }
+      }
+    </style>
+    <style>
+      .audio-recorder {
+        background-color: #ebebeb;
+        box-shadow: 0 2px 5px #bebebe;
+        border-radius: 20px;
+        box-sizing: border-box;
+        color: #000;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        transition: all 0.2s ease-in;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .audio-recorder-mic {
+        box-sizing: content-box;
+        cursor: pointer;
+        height: 16px;
+        color: #000;
+        padding: 12px;
+      }
+      .audio-recorder .audio-recorder-mic {
+        border-radius: 20px;
+      }
+      .audio-recorder.recording .audio-recorder-mic {
+        border-radius: 0;
+      }
+      .audio-recorder-timer,
+      .audio-recorder-status {
+        color: #000;
+        margin-left: 10px;
+        font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+      }
+      .audio-recorder-status {
+        margin-left: 15px;
+        display: flex;
+        align-items: baseline;
+        flex-grow: 1;
+        animation-name: fading-ar-status;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+      .audio-recorder-status-dot {
+        background-color: #d00;
+        border-radius: 50%;
+        height: 10px;
+        width: 9px;
+        margin-right: 5px;
+      }
+      .audio-recorder-options {
+        box-sizing: content-box;
+        height: 16px;
+        cursor: pointer;
+        padding: 12px 6px 12px 12px;
+      }
+      .audio-recorder-options ~ .audio-recorder-options {
+        padding: 12px 12px 12px 6px;
+        border-radius: 0 5px 5px 0;
+      }
+      .recording {
+        border-radius: 12px;
+        width: 300px;
+        transition: all 0.2s ease-out;
+      }
+      .display-none {
+        display: none;
+      }
+      .audio-recorder-visualizer {
+        margin-left: 15px;
+        flex-grow: 1;
+        align-self: center;
+        display: flex;
+        align-items: center;
+      }
+      @keyframes fading-ar-status {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      charset="UTF-8"
+      href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.26tY-h6gH9w.L.W.O/am=Ohg/d=0/rs=AN8SPfocrRO-f5jO91h2UqcrdJsFzeCmQQ/m=el_main_css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="responsive_header_content">
+        <div class="responsive_header_logo">
+          <a
+            href="https://store.steampowered.com/?snr=1_4_4__global-responsive-menu"
+          >
+            <img
+              src="https://store.cloudflare.steamstatic.com/public/shared/images/responsive/header_logo.png"
+              height="36"
+              alt="HƠI NƯỚC"
+            />
+          </a>
+        </div>
+        <h3 id="displayTitle">
+          <font style="vertical-align: inherit"
+            ><font style="vertical-align: inherit">Tốt nhất</font></font
+          >
+        </h3>
+        <div class="nav_links">
+          <li>
+            <font style="vertical-align: inherit"
+              ><font style="vertical-align: inherit">Trang chủ</font></font
+            >
+          </li>
+          <li>
+            <font style="vertical-align: inherit"
+              ><font style="vertical-align: inherit">Xu hướng</font></font
+            >
+          </li>
+          <li>
+            <font style="vertical-align: inherit"
+              ><font style="vertical-align: inherit">Về chúng tôi</font></font
+            >
+          </li>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="search_area">
+        <div id="store_search">
+          <form name="searchForm" id="search_Form">
+            <div class="searchbox">
+              <input
+                id="searchForm"
+                name="searchForm"
+                type="text"
+                class="default"
+                placeholder="tìm kiếm"
+                size="22"
+                maxlength="64"
+              />
+              <div id="store_search_link">
+                <img
+                  src="https://store.cloudflare.steamstatic.com/public/images/blank.gif"
+                />
+              </div>
+            </div>
+          </form>
+          <div class="category" id="category">
+            <ul class="categoryGroup">
+              <li>
+                <font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit">Hoạt động</font></font
+                >
+              </li>
+              <li>
+                <font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit"
+                    >Bình thường</font
+                  ></font
+                >
+              </li>
+              <li>
+                <font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit">FPS</font></font
+                >
+              </li>
+              <li>
+                <font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit"
+                    >Trò chơi trực tuyến nhiều người chơi</font
+                  ></font
+                >
+              </li>
+              <li>
+                <font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit">nhập vai</font></font
+                >
+              </li>
+              <li>
+                <font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit">RTS</font></font
+                >
+              </li>
+              <li>
+                <font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit">Thể thao</font></font
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="showing_game" id="display"></div>
+    </main>
+    <footer></footer>
+
+    <script src="script.js"></script>
+
+    <div
+      id="fourEnglish_extension_root_id"
+      class="x4English_extension_root_class"
+    ></div>
+    <div
+      id="four_english_extension_modal"
+      class="four_english_extension_modal_class"
+    ></div>
+    <use-chat-gpt-ai
+      id="USE_CHAT_GPT_AI_ROOT"
+      class="close"
+      data-version="4.8.0"
+    ></use-chat-gpt-ai
+    ><use-chat-gpt-ai-content-menu
+      id="USE_CHAT_GPT_AI_ROOT_Context_Menu"
+    ></use-chat-gpt-ai-content-menu
+    ><use-chat-gpt-ai
+      id="MAXAI_GLOBAL_VIDEO_POPUP_CONTAINER_ID"
+      data-status="hide"
+    ></use-chat-gpt-ai
+    ><max-ai-minimum-app
+      id="USE_CHAT_GPT_AI_ROOT_Minimize_Container"
+      data-version="4.8.0"
+    ></max-ai-minimum-app>
+    <div
+      id="goog-gt-tt"
+      class="VIpgJd-yAWNEb-L7lbkb skiptranslate"
+      style="
+        border-radius: 12px;
+        margin: 0 0 0 -23px;
+        padding: 0;
+        font-family: 'Google Sans', Arial, sans-serif;
+      "
+      data-id=""
+    >
+      <div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd">
+        <div class="VIpgJd-yAWNEb-hvhgNd-l4eHX-i3jM8c">
+          <img
+            src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg"
+            width="24"
+            height="24"
+            alt=""
+          />
+        </div>
+        <div class="VIpgJd-yAWNEb-hvhgNd-k77Iif-i3jM8c">
+          <div class="VIpgJd-yAWNEb-hvhgNd-IuizWc" dir="ltr">Original text</div>
+          <div
+            id="goog-gt-original-text"
+            class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"
+          ></div>
+        </div>
+        <div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr">
+          <div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr">
+            <div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Rate this translation</div>
+            <div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">
+              Your feedback will be used to help improve Google Translate
+            </div>
+          </div>
+          <div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr">
+            <button
+              id="goog-gt-thumbUpButton"
+              type="button"
+              class="VIpgJd-yAWNEb-hvhgNd-bgm6sf"
+              title="Good translation"
+              aria-label="Good translation"
+              aria-pressed="false"
+            >
+              <span id="goog-gt-thumbUpIcon"
+                ><svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  focusable="false"
+                  class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"
+                >
+                  <path
+                    d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"
+                  ></path></svg></span
+              ><span id="goog-gt-thumbUpIconFilled"
+                ><svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  focusable="false"
+                  class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"
+                >
+                  <path
+                    d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"
+                  ></path></svg
+              ></span></button
+            ><button
+              id="goog-gt-thumbDownButton"
+              type="button"
+              class="VIpgJd-yAWNEb-hvhgNd-bgm6sf"
+              title="Poor translation"
+              aria-label="Poor translation"
+              aria-pressed="false"
+            >
+              <span id="goog-gt-thumbDownIcon"
+                ><svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  focusable="false"
+                  class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"
+                >
+                  <path
+                    d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"
+                  ></path></svg></span
+              ><span id="goog-gt-thumbDownIconFilled"
+                ><svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  focusable="false"
+                  class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"
+                >
+                  <path
+                    d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"
+                  ></path></svg
+              ></span>
+            </button>
+          </div>
+        </div>
+        <div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce">
+          <form
+            id="goog-gt-votingForm"
+            action="//translate.googleapis.com/translate_voting?client=te_lib"
+            method="post"
+            target="votingFrame"
+            class="VIpgJd-yAWNEb-hvhgNd-aXYTce"
+          >
+            <input
+              type="text"
+              name="sl"
+              id="goog-gt-votingInputSrcLang"
+            /><input
+              type="text"
+              name="tl"
+              id="goog-gt-votingInputTrgLang"
+            /><input
+              type="text"
+              name="query"
+              id="goog-gt-votingInputSrcText"
+            /><input
+              type="text"
+              name="gtrans"
+              id="goog-gt-votingInputTrgText"
+            /><input type="text" name="vote" id="goog-gt-votingInputVote" />
+          </form>
+          <iframe name="votingFrame" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+    <div
+      id="MAXAI_SNACKBAR_CONTAINER"
+      style="z-index: 2147483647; color: rgb(255, 255, 255); position: absolute"
+    ></div>
+  </body>
+  <div class="troywell-avia"></div>
+  <div class="troywell-caa"></div>
+  <div class="troywell-avia"></div>
+  <div class="troywell-caa"></div>
+</html>
